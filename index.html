@@ -13,8 +13,12 @@
 
       <form id="binary">
         <div class="form-group">
-          <label for="input">Enter the binary number to decode:</label>
-          <input id="input" type="text" pattern="[01]*" required>
+          <label for="base">Enter the base you wish to decode:</label>
+          <input id="base" type="text" pattern="[1-9]*" required>
+        </div>
+        <div class="form-group">
+          <label for="input">Enter the number to decode:</label>
+          <input id="input" type="text" pattern="[0-8]*" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Find out!</button>
