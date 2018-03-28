@@ -11,17 +11,19 @@
     <div class="container">
       <h1>Binary Decoder</h1>
 
-      <form id="binary">
+      <form id="baseform">
         <div class="form-group">
           <label for="base">Enter the base you wish to decode:</label>
           <input id="base" type="text" pattern="[1-9]*" required>
         </div>
-        <div class="form-group">
-          <label for="input">Enter the number to decode:</label>
-          <input id="input" type="text" pattern="[0-8]*" required>
-        </div>
+        <button type="submit" class="btn btn-primary">Set base!</button>
+      </form>
 
-        <button type="submit" class="btn btn-primary">Find out!</button>
+      <form id="number">
+        <label for="input">Enter the number to decode:</label>
+        <div class="form-group" id="inputdiv">
+        </div>
+        <button type="submit" class="btn btn-primary">Decode!</button>
       </form>
 
       <div id="result">

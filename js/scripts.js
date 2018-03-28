@@ -1,21 +1,11 @@
-var binaryDecoder = function(number) {
-  var binaryArray = number.split("").reverse();
-  var binarySum = 0;
-  for (var index = 0; index < binaryArray.length; index ++) {
-      binarySum += parseInt(binaryArray[index]) * Math.pow(2, index);
-    }
-  }
-  return binarySum;
 
-}
-
-var ternaryDecoder = function(number) {
-  var ternaryArray = number.split("").reverse();
-  var ternarySum = 0;
-  for (var index = 0; index < ternaryArray.length; index ++) {
-      ternarySum += parseInt(ternaryArray[index]) * Math.pow(3, index);
+var numberDecoder = function(number, base) {
+  var numberArray = number.split("").reverse();
+  var numberSum = 0;
+  for (var index = 0; index < numberArray.length; index ++) {
+      numberSum += parseInt(numberArray[index]) * Math.pow(base, index);
   }
-  return ternarySum;
+  return numberSum;
 
 }
 
@@ -25,10 +15,17 @@ var ternaryDecoder = function(number) {
 
 //jQuery user interface logic here
 $(document).ready(function () {
-  $("form#binary").submit(function(event) {
+  var base;
+  $("form#baseform").submit(function(event) {
+    base = parseInt($("#base").val());
+    var pattern = base - 1;
+    $("#inputdiv").empty();
+    $("#inputdiv").append("<input id='input' type='text' pattern='[0-" + pattern + "]*' required>");
+    event.preventDefault();
+  });
+  $("form#number").submit(function(event){
     var input = $("#input").val();
-    var base = $("#base").val();
-    var output = ternaryDecoder(input);
+    var output = numberDecoder(input,base);
     $("#result").text(output);
     $("#result").show();
     event.preventDefault();
