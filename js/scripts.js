@@ -6,12 +6,7 @@ var numberDecoder = function(number, base) {
       numberSum += parseInt(numberArray[index]) * Math.pow(base, index);
   }
   return numberSum;
-
 }
-
-
-
-
 
 //jQuery user interface logic here
 $(document).ready(function () {
@@ -21,8 +16,10 @@ $(document).ready(function () {
     var pattern = base - 1;
     $("#inputdiv").empty();
     $("#inputdiv").append("<input id='input' type='text' pattern='[0-" + pattern + "]*' required>");
+    $("#number").show();
     event.preventDefault();
   });
+
   $("form#number").submit(function(event){
     var input = $("#input").val();
     var output = numberDecoder(input,base);
